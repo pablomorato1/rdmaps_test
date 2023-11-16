@@ -1,0 +1,17 @@
+<div class="card p-3">
+  <%= simple_form_for User.new, url: user_index_path, method: :post, class: "form-horizontal" do |f| %>
+    <% if @object.errors.present? %>
+      <ul>
+        <% @object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <h2>Novo usuario</h2>
+    <%= f.input :name, as: :string, label: "Nome", required: true %>
+    <%= f.input :email, label: "Email", required: true %>
+    <%= f.input :password, label: "Senha", required: true %>
+
+    <%= f.button :submit, "Criar usuario", class: "btn btn-primary btn-block float-end" %>
+  <% end %>
+</div>
